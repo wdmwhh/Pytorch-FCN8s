@@ -331,6 +331,7 @@ def main():
         val_image = val_image.squeeze().data.cpu().numpy().transpose((1, 2, 0))
         val_image = val_image * [0.229, 0.224, 0.225] + [0.485, 0.456, 0.406]
         val_image *= 255
+        val_image = val_image.astype(np.uint8)
         val_pred = cm[val_pred]
         val_label[val_label==255] = 21
         val_label = cm[val_label]
